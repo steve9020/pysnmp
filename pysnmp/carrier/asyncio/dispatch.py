@@ -30,7 +30,6 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
 # THE POSSIBILITY OF SUCH DAMAGE.
 #
-import platform
 import sys
 import traceback
 
@@ -42,8 +41,6 @@ except ImportError:
 
 from pysnmp.carrier.base import AbstractTransportDispatcher
 from pysnmp.error import PySnmpError
-
-IS_PYTHON_344_PLUS = platform.python_version_tuple() >= ('3', '4', '4')
 
 
 class AsyncioDispatcher(AbstractTransportDispatcher):
@@ -60,10 +57,9 @@ class AsyncioDispatcher(AbstractTransportDispatcher):
         self.loopingcall = None
         self.loop = kwargs.pop('loop', asyncio.get_event_loop())
 
-    @asyncio.coroutine
-    def handle_timeout(self):
+    async def handle_timeout(self):
         while True:
-            yield asyncio.From(asyncio.sleep(self.getTimerResolution()))
+            await asyncio.sleep(self.getTimerResolution())
             self.handleTimerTick(self.loop.time())
 
     def runDispatcher(self, timeout=0.0):
@@ -80,12 +76,7 @@ class AsyncioDispatcher(AbstractTransportDispatcher):
 
     def registerTransport(self, tDomain, transport):
         if self.loopingcall is None and self.getTimerResolution() > 0:
-            # Avoid deprecation warning for asyncio.async()
-            if IS_PYTHON_344_PLUS:
-                self.loopingcall = asyncio.ensure_future(self.handle_timeout())
-
-            else:
-                self.loopingcall = getattr(asyncio, 'async')(self.handle_timeout())
+            self.loopingcall = asyncio.ensure_future(self.handle_timeout())
 
         AbstractTransportDispatcher.registerTransport(
             self, tDomain, transport
@@ -104,15 +95,3 @@ class AsyncioDispatcher(AbstractTransportDispatcher):
         if self.__transportCount == 0 and not self.loopingcall.done():
             self.loopingcall.cancel()
             self.loopingcall = None
-
-
-# Trollius or Tulip?
-if not hasattr(asyncio, "From"):
-    exec ("""\
-@asyncio.coroutine
-def handle_timeout(self):
-    while True:
-        yield from asyncio.sleep(self.getTimerResolution())
-        self.handleTimerTick(self.loop.time())
-AsyncioDispatcher.handle_timeout = handle_timeout\
-""")

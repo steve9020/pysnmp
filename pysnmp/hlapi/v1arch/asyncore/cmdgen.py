@@ -17,7 +17,7 @@ VB_PROCESSOR = CommandGeneratorVarBinds()
 
 
 def getCmd(snmpDispatcher, authData, transportTarget, *varBinds, **options):
-    """Initiate SNMP GET query over SNMPv1/v2c.
+    r"""Initiate SNMP GET query over SNMPv1/v2c.
 
     Based on passed parameters, prepares SNMP GET packet
     (:RFC:`1905#section-4.2.1`) and schedules its transmission by
@@ -161,7 +161,7 @@ def getCmd(snmpDispatcher, authData, transportTarget, *varBinds, **options):
 
 def setCmd(snmpDispatcher, authData, transportTarget,
            *varBinds, **options):
-    """Initiate SNMP SET query over SNMPv1/v2c.
+    r"""Initiate SNMP SET query over SNMPv1/v2c.
 
     Based on passed parameters, prepares SNMP SET packet
     (:RFC:`1905#section-4.2.5`) and schedules its transmission by
@@ -305,7 +305,7 @@ def setCmd(snmpDispatcher, authData, transportTarget,
 
 def nextCmd(snmpDispatcher, authData, transportTarget,
             *varBinds, **options):
-    """Initiate SNMP GETNEXT query over SNMPv1/v2c.
+    r"""Initiate SNMP GETNEXT query over SNMPv1/v2c.
 
     Based on passed parameters, prepares SNMP GETNEXT packet
     (:RFC:`1905#section-4.2.2`) and schedules its transmission by
@@ -450,7 +450,7 @@ def nextCmd(snmpDispatcher, authData, transportTarget,
 
 def bulkCmd(snmpDispatcher, authData, transportTarget,
             nonRepeaters, maxRepetitions, *varBinds, **options):
-    """Initiate SNMP GETBULK query over SNMPv2c.
+    r"""Initiate SNMP GETBULK query over SNMPv2c.
 
     Based on passed parameters, prepares SNMP GETBULK packet
     (:RFC:`1905#section-4.2.3`) and schedules its transmission by

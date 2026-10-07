@@ -15,7 +15,7 @@ __all__ = ['getCmd', 'nextCmd', 'setCmd', 'bulkCmd']
 
 def getCmd(snmpEngine, authData, transportTarget, contextData,
            *varBinds, **options):
-    """Creates a generator to perform one or more SNMP GET queries.
+    r"""Creates a generator to perform one or more SNMP GET queries.
 
     On each iteration, new SNMP GET request is send (:RFC:`1905#section-4.2.1`).
     The iterator blocks waiting for response to arrive or error to occur.
@@ -121,7 +121,7 @@ def getCmd(snmpEngine, authData, transportTarget, contextData,
 
 def setCmd(snmpEngine, authData, transportTarget, contextData,
            *varBinds, **options):
-    """Creates a generator to perform one or more SNMP SET queries.
+    r"""Creates a generator to perform one or more SNMP SET queries.
 
     On each iteration, new SNMP SET request is send (:RFC:`1905#section-4.2.5`).
     The iterator blocks waiting for response to arrive or error to occur.
@@ -228,7 +228,7 @@ def setCmd(snmpEngine, authData, transportTarget, contextData,
 
 def nextCmd(snmpEngine, authData, transportTarget, contextData,
             *varBinds, **options):
-    """Creates a generator to perform one or more SNMP GETNEXT queries.
+    r"""Creates a generator to perform one or more SNMP GETNEXT queries.
 
     On each iteration, new SNMP GETNEXT request is send
     (:RFC:`1905#section-4.2.2`). The iterator blocks waiting for response
@@ -415,7 +415,7 @@ def nextCmd(snmpEngine, authData, transportTarget, contextData,
 
 def bulkCmd(snmpEngine, authData, transportTarget, contextData,
             nonRepeaters, maxRepetitions, *varBinds, **options):
-    """Creates a generator to perform one or more SNMP GETBULK queries.
+    r"""Creates a generator to perform one or more SNMP GETBULK queries.
 
     On each iteration, new SNMP GETBULK request is send
     (:RFC:`1905#section-4.2.3`). The iterator blocks waiting for response

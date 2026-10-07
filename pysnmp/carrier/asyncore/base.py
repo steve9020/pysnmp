@@ -4,7 +4,9 @@
 # Copyright (c) 2005-2019, Ilya Etingof <etingof@gmail.com>
 # License: http://snmplabs.com/pysnmp/license.html
 #
-import asyncore
+# NOTE(keeper): `asyncore` was removed from the stdlib in Python 3.12;
+# pysnmp now vendors it (see pysnmp/carrier/asyncore/asyncore.py).
+from pysnmp.carrier.asyncore import asyncore
 import socket
 import sys
 

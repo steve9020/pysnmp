@@ -4,7 +4,7 @@
 # Copyright (c) 2005-2019, Ilya Etingof <etingof@gmail.com>
 # License: http://snmplabs.com/pysnmp/license.html
 #
-from pyasn1.compat.octets import null
+from pysnmp.compat.octets import null
 from pyasn1.error import PyAsn1Error
 
 from pysnmp import debug

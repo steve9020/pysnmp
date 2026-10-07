@@ -30,7 +30,6 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
 # THE POSSIBILITY OF SUCH DAMAGE.
 #
-import platform
 import sys
 import traceback
 
@@ -44,7 +43,6 @@ from pysnmp import debug
 from pysnmp.carrier import error
 from pysnmp.carrier.asyncio.base import AbstractAsyncioTransport
 
-IS_PYTHON_344_PLUS = platform.python_version_tuple() >= ('3', '4', '4')
 
 
 class DgramAsyncioProtocol(asyncio.DatagramProtocol, AbstractAsyncioTransport):
@@ -101,12 +99,7 @@ class DgramAsyncioProtocol(asyncio.DatagramProtocol, AbstractAsyncioTransport):
                 lambda: self, local_addr=iface, family=self.SOCK_FAMILY
             )
 
-            # Avoid deprecation warning for asyncio.async()
-            if IS_PYTHON_344_PLUS:
-              self._lport = asyncio.ensure_future(c)
-
-            else: # pragma: no cover
-              self._lport = getattr(asyncio, 'async')(c)
+            self._lport = asyncio.ensure_future(c)
 
         except Exception:
             raise error.CarrierError(';'.join(traceback.format_exception(*sys.exc_info())))
@@ -119,12 +112,7 @@ class DgramAsyncioProtocol(asyncio.DatagramProtocol, AbstractAsyncioTransport):
                 lambda: self, local_addr=iface, family=self.SOCK_FAMILY
             )
 
-            # Avoid deprecation warning for asyncio.async()
-            if IS_PYTHON_344_PLUS:
-              self._lport = asyncio.ensure_future(c)
-
-            else: # pragma: no cover
-              self._lport = getattr(asyncio, 'async')(c)
+            self._lport = asyncio.ensure_future(c)
 
         except Exception:
             raise error.CarrierError(';'.join(traceback.format_exception(*sys.exc_info())))

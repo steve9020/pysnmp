@@ -19,8 +19,8 @@ except ImportError:
     inet_ntop = lambda x, y: inet_ntoa(y)
     inet_pton = lambda x, y: inet_aton(y)
 
-from pyasn1.compat.octets import int2oct
-from pyasn1.compat.octets import oct2int
+from pysnmp.compat.octets import int2oct
+from pysnmp.compat.octets import oct2int
 
 if 'mibBuilder' not in globals():
     import sys

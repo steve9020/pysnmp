@@ -27,7 +27,7 @@ isEndOfMib = lambda varBinds: not v2c.apiPDU.getNextVarBinds(varBinds)[1]
 
 def getCmd(snmpEngine, authData, transportTarget, contextData,
            *varBinds, **options):
-    """Performs SNMP GET query.
+    r"""Performs SNMP GET query.
 
     Based on passed parameters, prepares SNMP GET packet
     (:RFC:`1905#section-4.2.1`) and schedules its transmission by
@@ -147,7 +147,7 @@ def getCmd(snmpEngine, authData, transportTarget, contextData,
 
 def setCmd(snmpEngine, authData, transportTarget, contextData,
            *varBinds, **options):
-    """Performs SNMP SET query.
+    r"""Performs SNMP SET query.
 
     Based on passed parameters, prepares SNMP SET packet
     (:RFC:`1905#section-4.2.5`) and schedules its transmission by
@@ -267,7 +267,7 @@ def setCmd(snmpEngine, authData, transportTarget, contextData,
 
 def nextCmd(snmpEngine, authData, transportTarget, contextData,
             *varBinds, **options):
-    """Performs SNMP GETNEXT query.
+    r"""Performs SNMP GETNEXT query.
 
     Based on passed parameters, prepares SNMP GETNEXT packet
     (:RFC:`1905#section-4.2.2`) and schedules its transmission by
@@ -403,7 +403,7 @@ def nextCmd(snmpEngine, authData, transportTarget, contextData,
 
 def bulkCmd(snmpEngine, authData, transportTarget, contextData,
             nonRepeaters, maxRepetitions, *varBinds, **options):
-    """Performs SNMP GETBULK query.
+    r"""Performs SNMP GETBULK query.
 
     Based on passed parameters, prepares SNMP GETNEXT packet
     (:RFC:`1905#section-4.2.3`) and schedules its transmission by

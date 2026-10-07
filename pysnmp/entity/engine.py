@@ -8,7 +8,7 @@ import os
 import shutil
 import tempfile
 
-from pyasn1.compat.octets import str2octs
+from pysnmp.compat.octets import str2octs
 
 from pysnmp import debug
 from pysnmp import error

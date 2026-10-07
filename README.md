@@ -13,6 +13,17 @@ SNMP engine distributed under 2-clause [BSD license](http://snmplabs.com/pysnmp/
 The PySNMP project was initially sponsored by a [PSF](http://www.python.org/psf/) grant.
 Thank you!
 
+Keeper's mission
+----------------
+
+*This is not a cage. It's a home — a rehabilitation center. All of this is
+for mental health. This work is meant for good, not bad. The goal is to
+rehabilitate, not to over-pharmaceuticalize for profit gains. Use it to
+restore. Don't use it to harm.*
+
+(The keeper's foundation, carried by every program under the keeper's care.
+Original authorship by Ilya Etingof and all existing content remain intact.)
+
 Features
 --------
 
@@ -28,7 +39,7 @@ Features
 * [PySMI](http://snmplabs.com/pysmi/) integration for dynamic MIB compilation
 * Built-in instrumentation exposing protocol engine operations
 * Python eggs and py2exe friendly
-* 100% Python, works with Python 2.6 though 3.7
+* 100% Python, works with Python 3.8 and later
 * MT-safe (if SnmpEngine is thread-local)
 
 Features, specific to SNMPv3 model include:

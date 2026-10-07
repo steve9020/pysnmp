@@ -502,7 +502,7 @@ class ManagedMibObject(ObjectType):
     # Read operation
 
     def readTest(self, varBind, **context):
-        """Test the ability to read Managed Object Instance.
+        r"""Test the ability to read Managed Object Instance.
 
         Implements the first of the two phases of the SNMP GET command
         processing (:RFC:`1905#section-4.2.1`).
@@ -572,7 +572,7 @@ class ManagedMibObject(ObjectType):
         node.readTest(varBind, **context)
 
     def readGet(self, varBind, **context):
-        """Read Managed Object Instance.
+        r"""Read Managed Object Instance.
 
         Implements the second of the two phases of the SNMP GET command
         processing (:RFC:`1905#section-4.2.1`).
@@ -698,7 +698,7 @@ class ManagedMibObject(ObjectType):
         actionFun(varBind, **context)
 
     def readTestNext(self, varBind, **context):
-        """Test the ability to read the next Managed Object Instance.
+        r"""Test the ability to read the next Managed Object Instance.
 
         Implements the first of the two phases of the SNMP GETNEXT command
         processing (:RFC:`1905#section-4.2.2`).
@@ -751,7 +751,7 @@ class ManagedMibObject(ObjectType):
         self._readNext('readTestNext', varBind, **context)
 
     def readGetNext(self, varBind, **context):
-        """Read the next Managed Object Instance.
+        r"""Read the next Managed Object Instance.
 
         Implements the second of the two phases of the SNMP GETNEXT command
         processing (:RFC:`1905#section-4.2.2`).
@@ -800,7 +800,7 @@ class ManagedMibObject(ObjectType):
     # Write operation
 
     def writeTest(self, varBind, **context):
-        """Test the ability to modify Managed Object Instance.
+        r"""Test the ability to modify Managed Object Instance.
 
         Implements the first of the multi-step workflow of the SNMP SET
         command processing (:RFC:`1905#section-4.2.5`).
@@ -858,7 +858,7 @@ class ManagedMibObject(ObjectType):
             node.writeTest(varBind, **context)
 
     def writeCommit(self, varBind, **context):
-        """Commit new value of the Managed Object Instance.
+        r"""Commit new value of the Managed Object Instance.
 
         Implements the second of the multi-step workflow of the SNMP SET
         command processing (:RFC:`1905#section-4.2.5`).
@@ -925,7 +925,7 @@ class ManagedMibObject(ObjectType):
             node.writeCommit(varBind, **context)
 
     def writeCleanup(self, varBind, **context):
-        """Finalize Managed Object Instance modification.
+        r"""Finalize Managed Object Instance modification.
 
         Implements the successful third step of the multi-step workflow of the
         SNMP SET command processing (:RFC:`1905#section-4.2.5`).
@@ -991,7 +991,7 @@ class ManagedMibObject(ObjectType):
             node.writeCleanup(varBind, **context)
 
     def writeUndo(self, varBind, **context):
-        """Finalize Managed Object Instance modification.
+        r"""Finalize Managed Object Instance modification.
 
         Implements the third (unsuccessful) step of the multi-step workflow
         of the SNMP SET command processing (:RFC:`1905#section-4.2.5`).
@@ -1137,7 +1137,7 @@ class MibScalar(ManagedMibObject):
     # MIB instrumentation methods
 
     def readGet(self, varBind, **context):
-        """Read Managed Object Instance.
+        r"""Read Managed Object Instance.
 
         Implements the second of the two phases of the SNMP GET command
         processing (:RFC:`1905#section-4.2.1`).
@@ -1203,7 +1203,7 @@ class MibScalar(ManagedMibObject):
         ManagedMibObject.readGet(self, varBind, **context)
 
     def readGetNext(self, varBind, **context):
-        """Read the next Managed Object Instance.
+        r"""Read the next Managed Object Instance.
 
         Implements the second of the two phases of the SNMP GETNEXT command
         processing (:RFC:`1905#section-4.2.2`).
@@ -1274,7 +1274,7 @@ class MibScalar(ManagedMibObject):
         ManagedMibObject.readGetNext(self, varBind, **context)
 
     def writeTest(self, varBind, **context):
-        """Test the ability to modify Managed Object Instance.
+        r"""Test the ability to modify Managed Object Instance.
 
         Implements the first of the multi-step workflow of the SNMP SET
         command processing (:RFC:`1905#section-4.2.5`).
@@ -1342,7 +1342,7 @@ class MibScalar(ManagedMibObject):
         return suffix == (0,)
 
     def createTest(self, varBind, **context):
-        """Test the ability to create a Managed Object Instance.
+        r"""Test the ability to create a Managed Object Instance.
 
         Implements the first of the multi-step workflow similar to the SNMP SET
         command processing (:RFC:`1905#section-4.2.5`).
@@ -1418,7 +1418,7 @@ class MibScalar(ManagedMibObject):
         instances[self.ST_CREATE][idx].writeTest((name, val), **context)
 
     def createCommit(self, varBind, **context):
-        """Create Managed Object Instance.
+        r"""Create Managed Object Instance.
 
         Implements the second of the multi-step workflow similar to the SNMP SET
         command processing (:RFC:`1905#section-4.2.5`).
@@ -1481,7 +1481,7 @@ class MibScalar(ManagedMibObject):
         instances[self.ST_CREATE][idx].writeCommit(varBind, **context)
 
     def createCleanup(self, varBind, **context):
-        """Finalize Managed Object Instance creation.
+        r"""Finalize Managed Object Instance creation.
 
         Implements the successful third step of the multi-step workflow similar to
         the SNMP SET command processing (:RFC:`1905#section-4.2.5`).
@@ -1534,7 +1534,7 @@ class MibScalar(ManagedMibObject):
         self._vars[name].writeCleanup(varBind, **context)
 
     def createUndo(self, varBind, **context):
-        """Undo Managed Object Instance creation.
+        r"""Undo Managed Object Instance creation.
 
         Implements the third (unsuccessful) step of the multi-step workflow
         similar to the SNMP SET command processing (:RFC:`1905#section-4.2.5`).
@@ -1673,7 +1673,7 @@ class MibScalarInstance(ManagedMibObject):
     # MIB instrumentation methods
 
     def readTest(self, varBind, **context):
-        """Test the ability to read Managed Object Instance.
+        r"""Test the ability to read Managed Object Instance.
 
         Implements the first of the two phases of the SNMP GET command
         processing (:RFC:`1905#section-4.2.1`).
@@ -1724,7 +1724,7 @@ class MibScalarInstance(ManagedMibObject):
         cbFun((self.name, self.syntax), **context)
 
     def readGet(self, varBind, **context):
-        """Read Managed Object Instance.
+        r"""Read Managed Object Instance.
 
         Implements the second of the two phases of the SNMP GET command
         processing (:RFC:`1905#section-4.2.1`).
@@ -1775,7 +1775,7 @@ class MibScalarInstance(ManagedMibObject):
         cbFun((self.name, self.getValue(name, **context)), **context)
 
     def readTestNext(self, varBind, **context):
-        """Test the ability to read the next Managed Object Instance.
+        r"""Test the ability to read the next Managed Object Instance.
 
         Implements the first of the two phases of the SNMP GETNEXT command
         processing (:RFC:`1905#section-4.2.2`).
@@ -1839,7 +1839,7 @@ class MibScalarInstance(ManagedMibObject):
         cbFun((self.name, self.syntax), **context)
 
     def readGetNext(self, varBind, **context):
-        """Read the next Managed Object Instance.
+        r"""Read the next Managed Object Instance.
 
         Implements the second of the two phases of the SNMP GETNEXT command
         processing (:RFC:`1905#section-4.2.2`).
@@ -1897,7 +1897,7 @@ class MibScalarInstance(ManagedMibObject):
         cbFun((self.name, self.getValue(self.name, **context)), **context)
 
     def writeTest(self, varBind, **context):
-        """Test the ability to modify Managed Object Instance.
+        r"""Test the ability to modify Managed Object Instance.
 
         Implements the first of the multi-step workflow of the SNMP SET
         command processing (:RFC:`1905#section-4.2.5`).
@@ -1975,7 +1975,7 @@ class MibScalarInstance(ManagedMibObject):
         cbFun((self.name, self.syntax), **context)
 
     def writeCommit(self, varBind, **context):
-        """Commit new value of the Managed Object Instance.
+        r"""Commit new value of the Managed Object Instance.
 
         Implements the second of the multi-step workflow of the SNMP SET
         command processing (:RFC:`1905#section-4.2.5`).
@@ -2030,7 +2030,7 @@ class MibScalarInstance(ManagedMibObject):
         cbFun((self.name, self.syntax), **context)
 
     def writeCleanup(self, varBind, **context):
-        """Finalize Managed Object Instance modification.
+        r"""Finalize Managed Object Instance modification.
 
         Implements the successful third step of the multi-step workflow of the
         SNMP SET command processing (:RFC:`1905#section-4.2.5`).
@@ -2085,7 +2085,7 @@ class MibScalarInstance(ManagedMibObject):
         cbFun((self.name, self.syntax), **context)
 
     def writeUndo(self, varBind, **context):
-        """Undo Managed Object Instance modification.
+        r"""Undo Managed Object Instance modification.
 
         Implements the third (unsuccessful) step of the multi-step workflow
         of the SNMP SET command processing (:RFC:`1905#section-4.2.5`).
@@ -2187,7 +2187,7 @@ class MibTableColumn(MibScalar, ObjectType):
     # Column destruction
 
     def destroyTest(self, varBind, **context):
-        """Test the ability to destroy a Managed Object Instance.
+        r"""Test the ability to destroy a Managed Object Instance.
 
         Implements the first of the multi-step workflow similar to SNMP SET
         command processing (:RFC:`1905#section-4.2.5`).
@@ -2265,7 +2265,7 @@ class MibTableColumn(MibScalar, ObjectType):
         cbFun(varBind, **context)
 
     def destroyCommit(self, varBind, **context):
-        """Destroy Managed Object Instance.
+        r"""Destroy Managed Object Instance.
 
         Implements the second of the multi-step workflow similar to the SNMP SET
         command processing (:RFC:`1905#section-4.2.5`).
@@ -2327,7 +2327,7 @@ class MibTableColumn(MibScalar, ObjectType):
         cbFun(varBind, **context)
 
     def destroyCleanup(self, varBind, **context):
-        """Finalize Managed Object Instance destruction.
+        r"""Finalize Managed Object Instance destruction.
 
         Implements the successful third step of the multi-step workflow similar to
         the SNMP SET command processing (:RFC:`1905#section-4.2.5`).
@@ -2383,7 +2383,7 @@ class MibTableColumn(MibScalar, ObjectType):
         cbFun(varBind, **context)
 
     def destroyUndo(self, varBind, **context):
-        """Undo Managed Object Instance destruction.
+        r"""Undo Managed Object Instance destruction.
 
         Implements the third (unsuccessful) step of the multi-step workflow
         similar to the SNMP SET command processing (:RFC:`1905#section-4.2.5`).
@@ -2610,7 +2610,7 @@ class MibTableRow(ManagedMibObject):
     getAsName = valueToOid
 
     def announceManagementEvent(self, action, varBind, **context):
-        """Announce mass operation on parent table's row.
+        r"""Announce mass operation on parent table's row.
 
         SNMP SMI provides a way to extend already existing SMI table with
         another table. Whenever a mass operation on parent table's column
@@ -2693,7 +2693,7 @@ class MibTableRow(ManagedMibObject):
             debug.logger & debug.FLAG_INS and debug.logger('announceManagementEvent %s to %s' % (action, mibObj))
 
     def receiveManagementEvent(self, action, varBind, **context):
-        """Apply mass operation on extending table's row.
+        r"""Apply mass operation on extending table's row.
 
         SNMP SMI provides a way to extend already existing SMI table with
         another table. Whenever a mass operation on parent table's column
@@ -2789,7 +2789,7 @@ class MibTableRow(ManagedMibObject):
         return self._indexNames
 
     def _manageColumns(self, action, varBind, **context):
-        """Apply a management action on all columns
+        r"""Apply a management action on all columns
 
         Parameters
         ----------
@@ -2879,7 +2879,7 @@ class MibTableRow(ManagedMibObject):
                     action, name, instId, name in indexVals and "index " or "", indexVals.get(name, val)))
 
     def _checkColumns(self, varBind, **context):
-        """Check the consistency of all columns.
+        r"""Check the consistency of all columns.
 
         Parameters
         ----------
@@ -2949,7 +2949,7 @@ class MibTableRow(ManagedMibObject):
                 '%s: _checkColumns: checking instance %s' % (self, instName))
 
     def writeTest(self, varBind, **context):
-        """Test the ability to create/destroy or modify Managed Object Instance.
+        r"""Test the ability to create/destroy or modify Managed Object Instance.
 
         Implements the first of the multi-step workflow of the SNMP SET
         command processing (:RFC:`1905#section-4.2.5`). On top of that,
@@ -3031,7 +3031,7 @@ class MibTableRow(ManagedMibObject):
         ManagedMibObject.writeTest(self, varBind, **dict(context, cbFun=_cbFun))
 
     def writeCommit(self, varBind, **context):
-        """Create/destroy or modify Managed Object Instance.
+        r"""Create/destroy or modify Managed Object Instance.
 
         Implements the second of the multi-step workflow of the SNMP SET
         command processing (:RFC:`1905#section-4.2.5`). On top of that,
@@ -3121,7 +3121,7 @@ class MibTableRow(ManagedMibObject):
         ManagedMibObject.writeCommit(self, varBind, **dict(context, cbFun=_cbFun))
 
     def writeCleanup(self, varBind, **context):
-        """Finalize Managed Object Instance modification.
+        r"""Finalize Managed Object Instance modification.
 
         Implements the successful third step of the multi-step workflow of the
         SNMP SET command processing (:RFC:`1905#section-4.2.5`). On top of that,
@@ -3194,7 +3194,7 @@ class MibTableRow(ManagedMibObject):
         ManagedMibObject.writeCleanup(self, varBind, **dict(context, cbFun=_cbFun))
 
     def writeUndo(self, varBind, **context):
-        """Undo Managed Object Instance modification.
+        r"""Undo Managed Object Instance modification.
 
         Implements the third (unsuccessful) step of the multi-step workflow
         of the SNMP SET command processing (:RFC:`1905#section-4.2.5`). On top

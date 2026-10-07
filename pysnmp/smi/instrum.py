@@ -215,7 +215,7 @@ class MibInstrumController(AbstractMibInstrumController):
         debug.logger & debug.FLAG_INS and debug.logger('_indexMib: rebuilt')
 
     def flipFlopFsm(self, fsmTable, *varBinds, **context):
-        """Read, modify, create or remove Managed Objects Instances.
+        r"""Read, modify, create or remove Managed Objects Instances.
 
         Given one or more py:class:`~pysnmp.smi.rfc1902.ObjectType`, recursively
         transitions corresponding Managed Objects Instances through the Finite State
@@ -381,7 +381,7 @@ class MibInstrumController(AbstractMibInstrumController):
             raise err['error']
 
     def readMibObjects(self, *varBinds, **context):
-        """Read Managed Objects Instances.
+        r"""Read Managed Objects Instances.
 
         Given one or more py:class:`~pysnmp.smi.rfc1902.ObjectType` objects, read
         all or none of the referenced Managed Objects Instances.
@@ -435,7 +435,7 @@ class MibInstrumController(AbstractMibInstrumController):
         self.flipFlopFsm(self.FSM_READ_VAR, *varBinds, **context)
 
     def readNextMibObjects(self, *varBinds, **context):
-        """Read Managed Objects Instances next to the given ones.
+        r"""Read Managed Objects Instances next to the given ones.
 
         Given one or more py:class:`~pysnmp.smi.rfc1902.ObjectType` objects, read
         all or none of the Managed Objects Instances next to the referenced ones.
@@ -495,7 +495,7 @@ class MibInstrumController(AbstractMibInstrumController):
         self.flipFlopFsm(self.FSM_READ_NEXT_VAR, *varBinds, **context)
 
     def writeMibObjects(self, *varBinds, **context):
-        """Create, destroy or modify Managed Objects Instances.
+        r"""Create, destroy or modify Managed Objects Instances.
 
         Given one or more py:class:`~pysnmp.smi.rfc1902.ObjectType` objects, create,
         destroy or modify  all or none of the referenced Managed Objects Instances.

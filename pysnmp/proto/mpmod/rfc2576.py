@@ -6,7 +6,7 @@
 #
 from pyasn1.codec.ber import decoder
 from pyasn1.codec.ber import eoo
-from pyasn1.compat.octets import null
+from pysnmp.compat.octets import null
 from pyasn1.type import univ
 
 from pysnmp import debug

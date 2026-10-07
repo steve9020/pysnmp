@@ -11,8 +11,8 @@
 #
 import socket
 
-from pyasn1.compat.octets import int2oct
-from pyasn1.compat.octets import oct2int
+from pysnmp.compat.octets import int2oct
+from pysnmp.compat.octets import oct2int
 
 from pysnmp import error
 

@@ -9,7 +9,7 @@ import time
 from pyasn1.codec.ber import decoder
 from pyasn1.codec.ber import encoder
 from pyasn1.codec.ber import eoo
-from pyasn1.compat.octets import null
+from pysnmp.compat.octets import null
 from pyasn1.error import PyAsn1Error
 from pyasn1.type import constraint
 from pyasn1.type import namedtype

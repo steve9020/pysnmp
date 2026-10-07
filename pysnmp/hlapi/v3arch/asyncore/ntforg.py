@@ -20,7 +20,7 @@ LCD = NotificationOriginatorLcdConfigurator()
 
 def sendNotification(snmpEngine, authData, transportTarget, contextData,
                      notifyType, *varBinds, **options):
-    """Send SNMP notification.
+    r"""Send SNMP notification.
 
     Based on passed parameters, prepares SNMP TRAP or INFORM
     notification (:RFC:`1905#section-4.2.6`) and schedules its

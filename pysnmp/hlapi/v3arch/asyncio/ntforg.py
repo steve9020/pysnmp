@@ -28,10 +28,9 @@ VB_PROCESSOR = NotificationOriginatorVarBinds()
 LCD = NotificationOriginatorLcdConfigurator()
 
 
-@asyncio.coroutine
-def sendNotification(snmpEngine, authData, transportTarget, contextData,
+async def sendNotification(snmpEngine, authData, transportTarget, contextData,
                      notifyType, *varBinds, **options):
-    """Creates a generator to send SNMP notification.
+    r"""Creates a generator to send SNMP notification.
 
     When iterator gets advanced by :py:mod:`asyncio` main loop,
     SNMP TRAP or INFORM notification is send (:RFC:`1905#section-4.2.6`).
@@ -170,4 +169,4 @@ def sendNotification(snmpEngine, authData, transportTarget, contextData,
         loop = asyncio.get_event_loop()
         loop.call_soon(__trapFun, future)
 
-    return future
+    return await future

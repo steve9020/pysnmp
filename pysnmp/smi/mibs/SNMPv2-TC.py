@@ -12,7 +12,7 @@
 import inspect
 import string
 
-from pyasn1.compat import octets
+from pysnmp.compat import octets
 from pyasn1.type import univ
 from pyasn1.type.base import Asn1Item
 

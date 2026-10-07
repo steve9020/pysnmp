@@ -6,7 +6,7 @@
 #
 import logging
 
-from pyasn1.compat.octets import octs2ints
+from pysnmp.compat.octets import octs2ints
 
 from pysnmp import __version__
 from pysnmp import error

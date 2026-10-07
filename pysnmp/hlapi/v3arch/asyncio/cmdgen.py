@@ -54,10 +54,9 @@ LCD = CommandGeneratorLcdConfigurator()
 isEndOfMib = lambda varBinds: not v2c.apiPDU.getNextVarBinds(varBinds)[1]
 
 
-@asyncio.coroutine
-def getCmd(snmpEngine, authData, transportTarget, contextData,
+async def getCmd(snmpEngine, authData, transportTarget, contextData,
            *varBinds, **options):
-    """Creates a generator to perform SNMP GET query.
+    r"""Creates a generator to perform SNMP GET query.
 
     When iterator gets advanced by :py:mod:`asyncio` main loop,
     SNMP GET request is send (:RFC:`1905#section-4.2.1`).
@@ -161,13 +160,12 @@ def getCmd(snmpEngine, authData, transportTarget, contextData,
         (options.get('lookupMib', True), future)
     )
 
-    return future
+    return await future
 
 
-@asyncio.coroutine
-def setCmd(snmpEngine, authData, transportTarget, contextData,
+async def setCmd(snmpEngine, authData, transportTarget, contextData,
            *varBinds, **options):
-    """Creates a generator to perform SNMP SET query.
+    r"""Creates a generator to perform SNMP SET query.
 
     When iterator gets advanced by :py:mod:`asyncio` main loop,
     SNMP SET request is send (:RFC:`1905#section-4.2.5`).
@@ -272,13 +270,12 @@ def setCmd(snmpEngine, authData, transportTarget, contextData,
         (options.get('lookupMib', True), future)
     )
 
-    return future
+    return await future
 
 
-@asyncio.coroutine
-def nextCmd(snmpEngine, authData, transportTarget, contextData,
+async def nextCmd(snmpEngine, authData, transportTarget, contextData,
             *varBinds, **options):
-    """Creates a generator to perform SNMP GETNEXT query.
+    r"""Creates a generator to perform SNMP GETNEXT query.
 
     When iterator gets advanced by :py:mod:`asyncio` main loop,
     SNMP GETNEXT request is send (:RFC:`1905#section-4.2.2`).
@@ -388,13 +385,12 @@ def nextCmd(snmpEngine, authData, transportTarget, contextData,
         (options.get('lookupMib', True), future)
     )
 
-    return future
+    return await future
 
 
-@asyncio.coroutine
-def bulkCmd(snmpEngine, authData, transportTarget, contextData,
+async def bulkCmd(snmpEngine, authData, transportTarget, contextData,
             nonRepeaters, maxRepetitions, *varBinds, **options):
-    """Creates a generator to perform SNMP GETBULK query.
+    r"""Creates a generator to perform SNMP GETBULK query.
 
     When iterator gets advanced by :py:mod:`asyncio` main loop,
     SNMP GETBULK request is send (:RFC:`1905#section-4.2.3`).
@@ -534,4 +530,4 @@ def bulkCmd(snmpEngine, authData, transportTarget, contextData,
         (options.get('lookupMib', True), future)
     )
 
-    return future
+    return await future

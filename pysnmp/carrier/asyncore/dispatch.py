@@ -4,8 +4,10 @@
 # Copyright (c) 2005-2019, Ilya Etingof <etingof@gmail.com>
 # License: http://snmplabs.com/pysnmp/license.html
 #
-from asyncore import loop
-from asyncore import socket_map
+# NOTE(keeper): `asyncore` was removed from the stdlib in Python 3.12;
+# pysnmp now vendors it (see pysnmp/carrier/asyncore/asyncore.py).
+from pysnmp.carrier.asyncore.asyncore import loop
+from pysnmp.carrier.asyncore.asyncore import socket_map
 from sys import exc_info
 from time import time
 from traceback import format_exception

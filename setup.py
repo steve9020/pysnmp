@@ -20,16 +20,12 @@ Intended Audience :: Telecommunications Industry
 License :: OSI Approved :: BSD License
 Natural Language :: English
 Operating System :: OS Independent
-Programming Language :: Python :: 2
-Programming Language :: Python :: 2.6
-Programming Language :: Python :: 2.7
 Programming Language :: Python :: 3
-Programming Language :: Python :: 3.2
-Programming Language :: Python :: 3.3
-Programming Language :: Python :: 3.4
-Programming Language :: Python :: 3.5
-Programming Language :: Python :: 3.6
-Programming Language :: Python :: 3.7
+Programming Language :: Python :: 3.8
+Programming Language :: Python :: 3.9
+Programming Language :: Python :: 3.10
+Programming Language :: Python :: 3.11
+Programming Language :: Python :: 3.12
 Topic :: Communications
 Topic :: System :: Monitoring
 Topic :: System :: Networking :: Monitoring
@@ -51,8 +47,8 @@ Then you could make eggs from this package.
 
 
 py_version = sys.version_info[:2]
-if py_version < (2, 6):
-    print("ERROR: this package requires Python 2.6 or later!")
+if py_version < (3, 8):
+    print("ERROR: this package requires Python 3.8 or later!")
     sys.exit(1)
 
 requires = [ln.strip() for ln in open('requirements.txt').readlines()]
@@ -137,6 +133,7 @@ params.update({
     'platforms': ['any'],
     'license': 'BSD-2-Clause',
     'packages': ['pysnmp',
+                 'pysnmp.compat',
                  'pysnmp.smi',
                  'pysnmp.smi.mibs',
                  'pysnmp.smi.mibs.instances',
